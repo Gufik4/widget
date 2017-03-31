@@ -26,7 +26,7 @@ fs.readFile('./style.min.css', (err, css) => {
 
         _widget_data_file = replaceValueInJS(_widget_data_file, "CSS", _css_data_file);
         var widget_template = `<script type="text/javascript">(function(){${_widget_data_file}})()</script>`
-        fs.writeFile('widget.txt', widget_template, (err) => {
+        fs.writeFile('./dist/wigdet.txt', widget_template, (err) => {
             if (err) throw err;
             console.log('Widget is packed & ready, \ncopy from wigdet.txt and paste on bottom of body');
         });
