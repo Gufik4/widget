@@ -1,4 +1,4 @@
-# widget
+# widget dla FS, do portalu fsnews
 
 #### widget w DEV składa sie z plików widget.js oraz style.less.
 #### w DEV jeśli chcemy coś zmienić to odpalamy komendę "gulp watch" "i zmieniamy
