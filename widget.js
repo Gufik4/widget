@@ -3,8 +3,8 @@
 // person id, name i company tag
 // dorzucic date ostatniego req do localstorage, 
 // jesli ostatnia data mniejsza niz 20 min roznicy to nie rob req tylko 
-const DEBUG = true;
-const CSS = "test";
+const DEBUG = false;
+const CSS = "";
 const ICON_BASE_64 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAQAAABpN6lAAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                         AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                         cwAARt4AAEbeAY4mMlsAAAAHdElNRQfhAxwMGjdNKVbAAAAMdElEQVR42u2df5BVZRnHP+fHXVh+
@@ -130,15 +130,18 @@ const renderWidget = function(news, checkForNewsOnly) {
             $('.widget-toggler').on('click', function(e) {
                 _wrapper.toggleClass('open');
                 e.preventDefault();
+                e.stopPropagation();
             })
 
 
-            // hide on click outside wrapper
-            $(document).mouseup(function(e) {
+            // // hide on click outside wrapper
+            $(document).click(function(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 if (!_wrapper.is(e.target) // if the target of the click isn't the container...
                     && _wrapper.has(e.target).length === 0) // ... nor a descendant of the container
                 {
-                    _wrapper.toggleClass('open');
+                    _wrapper.removeClass('open');
                 }
             });
 
@@ -191,6 +194,5 @@ var ajaxRequest = function() {
 var init = function() {
     if (DEBUG) { console.log('widget start') }
     ajaxRequest()
-
 }
 init();
