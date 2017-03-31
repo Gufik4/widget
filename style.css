@@ -1,5 +1,11 @@
+@c1:#d10077; 
+@c2:#44a3dd;
+@c3:#2F4050;
+@bg1:#fefefe
+
+
 .widget-wrapper {
-  background: #fefefe;
+  background: @bg1;
   max-height: 270px;
   height: auto;
   width: auto;
@@ -78,7 +84,7 @@
   width: 30px;
   height: 30px;
   border: 1px solid #eee;
-  background: #fefefe;
+  background: @bg1;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 0 2px #ccc;

@@ -26,9 +26,15 @@ fs.readFile('./style.min.css', (err, css) => {
 
         _widget_data_file = replaceValueInJS(_widget_data_file, "CSS", _css_data_file);
         var widget_template = `<script type="text/javascript">(function(){${_widget_data_file}})()</script>`
-        fs.writeFile('./dist/wigdet.txt', widget_template, (err) => {
+        fs.writeFile('./dist/widget.txt', widget_template, (err) => {
             if (err) throw err;
-            console.log('Widget is packed & ready, \ncopy from wigdet.txt and paste on bottom of body');
+            console.log('Widget is packed & ready, \ncopy from widget.txt and paste on bottom of body');
+        });
+
+
+        fs.writeFile('./dist/widget.js', `(function(){${_widget_data_file}})()`, (err) => {
+            if (err) throw err;
+            console.log('Or use it as separate file, \nand paste it in head');
         });
     });
 
