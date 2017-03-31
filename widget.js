@@ -47,9 +47,9 @@ const renderWidget = function(news, checkForNewsOnly) {
             renderStyles();
 
             // make wrapper
-            var _wrapper = $('<div></div>').addClass('widget-wrapper loading open new');
+            var _wrapper = $('<div></div>').addClass('widget-wrapper loading');
             // make link to crm
-            var _toCMS = $('<div class="widget-link"><a href="http://news.databridgecmms.com/">Read <span>New</span> News &rarr;</a></div>');
+            var _toCMS = $('<div class="widget-link"><a href="http://news.databridgecmms.com/"> Read <span class="hidden">New</span> News &rarr;</a></div>');
             // make toggler
             var _toggler = $(`<div class="widget-toggler"><a>${ICON_BASE_64}</a></div>`);
 
@@ -63,7 +63,7 @@ const renderWidget = function(news, checkForNewsOnly) {
             news.map(function(elem, key) {
                 _wrapper.find('ul').append(`<li><a href="${elem.url}"><span>${key+1}.</span> ${elem.title}</a></div>`)
             })
-
+ 
             // add wrapper to DOM
             $('body').append(_wrapper);
 
