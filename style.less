@@ -1,0 +1,125 @@
+.widget-wrapper {
+    background: #fefefe;
+    max-height: 270px;
+    height: auto;
+    width: auto;
+    max-width: 160px;
+    position: fixed;
+    bottom: 50px;
+    right: -180px;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    transition: all .3s ease;
+    z-index: 1000;
+    &.open {
+        right: 10px;
+    }
+    &.loading {
+        .widget-toggler {
+            animation: toggleOnLoad 0.5s ease infinite;
+        }
+    }
+    &.new {
+        .widget-toggler {
+            animation: bg 1s ease infinite;
+        }
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 250px;
+        li {
+            border-bottom: 1px solid #eee;
+            padding: 1px 2px;
+            a {
+                font-size: 14px;
+                line-height: 14px;
+                color: #333;
+                display: block;
+                padding: 1px 0 1px;
+                cursor: pointer;
+                text-decoration: none;
+                word-break: break-all;
+            }
+            &:hover {
+                background: #fafafa;
+            }
+        }
+    }
+    .widget-link {
+        background: #eee;
+        height: 20px;
+        padding: 2px;
+        text-align: right;
+        a {
+            font-size: 14px;
+            line-height: 14px;
+            cursor: pointer;
+            padding: 0 2px;
+            small {
+                display: none;
+                font-size: 14px;
+                line-height: 14px;
+                color: red;
+                padding: 0 5px;
+                font-weight: bold;
+                animation: blink 1s ease infinite;
+            }
+        }
+    }
+    .widget-toggler {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #eee;
+        background: #fefefe;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 0 2px #ccc;
+        z-index: 1000;
+        transition: all .3s ease;
+
+        a {
+            cursor: pointer;
+            img {
+                max-width: 30px;
+                max-height: 30px;
+            }
+        }
+        &:hover{
+            border: 1px solid #ccc;
+        }
+    }
+}
+
+@keyframes bg {
+    0% {
+        background: #00B2EE;
+    }
+    50% {
+        background: #fafafa;
+    }
+    100% {
+        background: #00B2EE;
+    }
+}
+
+@keyframes toggleOnLoad {
+    0% {
+        bottom: 10px;
+       
+    }
+    50% {
+        bottom: 15px;
+    }
+    100% {
+        bottom: 10px;
+        
+    }
+    
+}
