@@ -7,8 +7,7 @@
     background: @bg1;
     max-height: 270px;
     height: auto;
-    width: auto;
-    max-width: @wrapper_max_w;
+    width: @wrapper_max_w;
     position: fixed;
     bottom: 50px;
     right: -@wrapper_max_w - 20px;
@@ -19,19 +18,19 @@
     z-index: 1000;
     &.o {
         right: 10px;
-        .wt{
-            border-radius: 4px;
-            border: 1px solid @pink;
-            background: @pink;
+        .wt {
+            border: 1px solid #eee;
+            background: @bg1;
+            border-radius: 50%;
             svg {
                 path {
-                    fill: #fff;
+                    fill: #000;
                 }
-            } 
+            }
         }
-    } 
+    }
     &.l {
-        .wt{
+        .wt {
             animation: toggleOnLoad 0.5s ease infinite;
         }
     }
@@ -39,8 +38,8 @@
         .wt {
             animation: bg 1s ease 5;
         }
-         .wl {
-            span{
+        .wl {
+            span {
                 display: inline;
             }
         }
@@ -71,8 +70,9 @@
     .wl {
         background: @lblue;
         height: 30px;
-        // border-top:1px solid @dblue;
+        /*border-top:1px solid @dblue;*/
         border-bottom: 1px solid @dblue;
+        position: relative;
         a {
             display: block;
             color: #fff;
@@ -90,8 +90,18 @@
                 font-weight: bold;
                 animation: blink 1s ease infinite;
             }
+        }
+        #r {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 6px 6px 1px;
+            z-index: 1001;
+            text-align: left;
             &:hover {
-                transform: translate3d(3px, 0, 0);
+                svg {
+                    animation: rotate 1s linear infinite;
+                }
             }
         }
     }
@@ -101,17 +111,20 @@
         right: 10px;
         width: 30px;
         height: 30px;
-        border: 1px solid #eee;
-        background: @bg1;
-        border-radius: 50%;
         overflow: hidden;
         box-shadow: 0 0 2px #ccc;
         z-index: 1000;
         transition: all .3s ease;
+        border-radius: 4px;
+        border: 1px solid @pink;
+        background: @pink;
         a {
             cursor: pointer;
             svg {
                 padding: 6px 5px;
+                path {
+                    fill: #fff;
+                }
             }
         }
         &:hover {
@@ -124,6 +137,15 @@
                 }
             }
         }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0)
+    }
+    100% {
+        transform: rotate(360deg)
     }
 }
 
